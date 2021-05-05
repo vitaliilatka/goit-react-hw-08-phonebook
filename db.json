@@ -1,0 +1,19 @@
+{
+    "contacts": [
+        {
+            "name": "Vitalii Latka",
+            "number": "+48574890192",
+            "id": 1
+        },
+        {
+            "name": "Hubert Zambrowski",
+            "number": "+48503745668",
+            "id": 2
+        },
+        {
+            "name": "Krzysztof Loboda",
+            "number": "+48582775991",
+            "id": 3
+        }
+    ]
+}
