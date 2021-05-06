@@ -1,0 +1,30 @@
+.contact {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.contact:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.name {
+  min-width: 200px;
+  margin: 0 15px 0 0;
+}
+
+.tel {
+  min-width: 120px;
+  margin: 0 0 0;
+}
+
+.contact button {
+  border: none;
+  font-size: 16px;
+  background-color: rgb(132, 176, 241);
+  border-radius: 10px;
+}
+
+.contact button:hover {
+  background-color: rgb(136, 217, 241);
+}
