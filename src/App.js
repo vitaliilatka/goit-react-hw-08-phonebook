@@ -1,40 +1,52 @@
-import Container from './components/Container';
-import ContactForm from './components/ContactForm';
-import ContactList from './components/ContactList';
-import Filter from './components/Filter';
-import Spinner from './components/Loader';
-import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import { contactsOperations, contactsSelectors } from './redux-js/contacts';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import routes from './routes';
 
-const App = ({ isLoading, isError, fetchContacts }) => {
-  // eslint-disable-next-line
-  useEffect(() => fetchContacts(), []);
+import Container from './components/Container';
+import AppBar from './components/AppBar';
+import Loader from './components/Loader';
+
+import { authOperations } from './redux-js/auth';
+import { connect } from 'react-redux';
+
+const HomePage = lazy(() =>
+  import('./views/HomePage' /* webpackChunkName: "home-page" */),
+);
+
+const RegisterPage = lazy(() =>
+  import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
+);
+const LoginPage = lazy(() =>
+  import('./views/LoginPage' /* webpackChunkName: "login-page" */),
+);
+const ContactsPage = lazy(() =>
+  import('./views/ContactsPage' /* webpackChunkName: "contacts-page" */),
+);
+
+const App = ({ onGetCurrentUser }) => {
+  useEffect(() => {
+    onGetCurrentUser();
+  }, []);
 
   return (
     <Container>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading ? (
-        <Spinner />
-      ) : isError ? (
-        <p>it's gonna be some error :(</p>
-      ) : (
-        <ContactList />
-      )}
+      <AppBar />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route exact path={routes.home} component={HomePage} />
+          <Route path={routes.register} component={RegisterPage} />
+          <Route path={routes.login} component={LoginPage} />
+          <Route exact path={routes.contacts} component={ContactsPage} />
+          <Redirect to={routes.home} />
+        </Switch>
+      </Suspense>
     </Container>
   );
 };
 
-const mapStateToProps = state => ({
-  isLoading: contactsSelectors.getLoading(state),
-  isError: contactsSelectors.getError(state),
-});
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+};
 
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

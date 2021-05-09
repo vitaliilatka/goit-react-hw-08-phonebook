@@ -21,7 +21,7 @@ const fetchContacts = () => async dispatch => {
         const { data } = await axios.get('/contacts');
         dispatch(fetchContactSuccess(data));
     } catch (error) {
-        dispatch(fetchContactError(error));
+        dispatch(fetchContactError(error.message));
     }
 };
 
@@ -41,7 +41,7 @@ const addContact = (name, number) => async dispatch => {
             .then(({ data }) => dispatch(addContactSuccess(data)))
             .catch(err => dispatch(addContactError(err)));
     } catch (error) {
-        dispatch(fetchContactError(error));
+        dispatch(fetchContactError(error.message));
     }
 };
 
@@ -50,7 +50,7 @@ const deleteContact = contactId => dispatch => {
     axios
         .delete(`/contacts/${contactId}`)
         .then(() => dispatch(deleteContactSuccess(contactId)))
-        .catch(err => dispatch(deleteContactError(err)));
+        .catch(error => dispatch(deleteContactError(error.message)));
 };
 
 // eslint-disable-next-line
