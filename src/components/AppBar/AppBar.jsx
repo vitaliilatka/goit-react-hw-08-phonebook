@@ -3,7 +3,7 @@ import Navigation from '../Navigation';
 import AuthNav from '../AuthNav';
 import UserMenu from '../UserMenu/UserMenu';
 import styles from './AppBar.module.css';
-import { authSelectors } from '../../redux/auth';
+import { authSelectors } from '../../redux-js/auth';
 
 const { getIsAuthenticated } = authSelectors;
 

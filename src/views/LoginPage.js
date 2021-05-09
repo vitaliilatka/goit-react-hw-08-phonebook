@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { authOperations } from '../redux-js/contacts';
+import { authOperations } from '../redux-js/auth';
 
 const initialState = {
     email: '',
