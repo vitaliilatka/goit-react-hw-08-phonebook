@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux-js/auth';
-import defaultAvatar from '../../images/default-avatar.png';
+import defaultAvatar from '../../images/default-contact.png';
 import styles from './UserMenu.module.css';
 
 const { getUserEmail } = authSelectors;

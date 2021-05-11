@@ -11,14 +11,14 @@ const AuthNav = () => {
                 activeClassName="Navlink--active"
             >
                 Register
-      </NavLink>
+            </NavLink>
             <NavLink
                 to={routes.login}
                 className="Navlink"
                 activeClassName="Navlink--active"
             >
                 Login
-      </NavLink>
+            </NavLink>
         </div>
     );
 };

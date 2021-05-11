@@ -10,7 +10,7 @@ import { authOperations } from './redux-js/auth';
 import { connect } from 'react-redux';
 
 import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute;'
+import PublicRoute from './components/PublicRoute';
 
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
@@ -40,8 +40,7 @@ const App = ({ onGetCurrentUser }) => {
           <PublicRoute
             path={routes.register}
             restricted
-            component={RegisterPage}
-            redirectTo={routes.contacts}
+            component={RegisterPage} x
           />
           <PublicRoute
             path={routes.login}

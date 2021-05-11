@@ -27,7 +27,7 @@ const LoginPage = ({ onLogin }) => {
             <form className="form" onSubmit={handleSubmit} autoComplete="off">
                 <label>
                     Email
-          <input
+                    <input
                         type="email"
                         name="email"
                         value={email}
@@ -38,7 +38,7 @@ const LoginPage = ({ onLogin }) => {
                 </label>
                 <label>
                     Password
-          <input
+                    <input
                         type="password"
                         name="password"
                         value={password}

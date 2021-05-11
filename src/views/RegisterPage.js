@@ -27,7 +27,7 @@ const RegisterPage = ({ onRegister }) => {
             <form className="form" onSubmit={handleSubmit} autoComplete="off">
                 <label>
                     Name
-          <input
+                    <input
                         type="name"
                         name="name"
                         value={name}
@@ -37,8 +37,8 @@ const RegisterPage = ({ onRegister }) => {
                     />
                 </label>
                 <label>
-                    Email
-          <input
+                    E-mail
+                    <input
                         type="email"
                         name="email"
                         value={email}
@@ -49,7 +49,7 @@ const RegisterPage = ({ onRegister }) => {
                 </label>
                 <label>
                     Password
-          <input
+                    <input
                         type="password"
                         name="password"
                         value={password}
