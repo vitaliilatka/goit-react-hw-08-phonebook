@@ -3,16 +3,12 @@ import { createReducer } from '@reduxjs/toolkit';
 import authActions from './auth-actions';
 
 const {
-    // registerRequest,
     registerSuccess,
     registerError,
-    // loginRequest,
     loginSuccess,
     loginError,
-    // logoutRequest,
     logoutSuccess,
     logoutError,
-    // getCurrentUserRequest,
     getCurrentUserSuccess,
     getCurrentUserError,
 } = authActions;
@@ -40,4 +36,14 @@ const error = createReducer(null, {
     [getCurrentUserError]: serError,
 });
 
-export default combineReducers({ user, token, error });
+const isLoggedIn = createReducer(false, {
+    [registerSuccess]: () => true,
+    [loginSuccess]: () => true,
+    [getCurrentUserSuccess]: () => true,
+    [registerError]: () => false,
+    [loginError]: () => false,
+    [getCurrentUserError]: () => false,
+    [logoutSuccess]: () => false,
+});
+
+export default combineReducers({ user, isLoggedIn, token, error });

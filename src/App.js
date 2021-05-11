@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
 import routes from './routes';
 
 import Container from './components/Container';
@@ -9,6 +8,9 @@ import Loader from './components/Loader';
 
 import { authOperations } from './redux-js/auth';
 import { connect } from 'react-redux';
+
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute;'
 
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
@@ -35,9 +37,24 @@ const App = ({ onGetCurrentUser }) => {
       <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path={routes.home} component={HomePage} />
-          <Route path={routes.register} component={RegisterPage} />
-          <Route path={routes.login} component={LoginPage} />
-          <Route exact path={routes.contacts} component={ContactsPage} />
+          <PublicRoute
+            path={routes.register}
+            restricted
+            component={RegisterPage}
+            redirectTo={routes.contacts}
+          />
+          <PublicRoute
+            path={routes.login}
+            restricted
+            component={LoginPage}
+            redirectTo={routes.contacts}
+          />
+          <PrivateRoute
+            path={routes.contacts}
+            component={ContactsPage}
+            redirectTo={routes.login}
+          />
+
           <Redirect to={routes.home} />
         </Switch>
       </Suspense>
