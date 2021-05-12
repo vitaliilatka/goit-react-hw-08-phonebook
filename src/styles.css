@@ -25,7 +25,7 @@ a {
 }
 
 .Navlink:hover {
-  border-color: orange;
+  border-color: rgb(0, 102, 255);
 }
 
 .Navlink:not(:last-child) {
@@ -33,7 +33,7 @@ a {
 }
 
 .Navlink--active {
-  background-color: orange;
+  background-color: rgb(245, 160, 3);
   color: #fff;
 }
 
@@ -46,7 +46,7 @@ a {
 .form > label {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .form input {
@@ -60,22 +60,22 @@ a {
 .form > button {
   padding: 5px;
   width: 120px;
-  background-color: rgb(179, 220, 253);
-  border: 2px solid rgb(144, 204, 253);
+  background-color: rgb(136, 195, 243);
+  border: 2px solid rgb(85, 167, 235);
   border-radius: 10px;
   transition: all 200ms ease-in-out;
 }
 
 .form > button:hover {
-  transform: scale(1.1);
-  background-color: rgb(144, 204, 253);
+  transform: scale(1.2);
+  background-color: rgb(87, 174, 245);
 }
 
 .homapage-title {
   text-align: center;
 }
 
-.Container {
+/* .Container {
   display: flex;
   flex-direction: column;
   max-width: 1200px;
@@ -88,4 +88,4 @@ a {
   background-color: rgb(65, 189, 226);
   border-radius: 10px;
   padding: 0 30px 30px;
-}
+} */

@@ -23,11 +23,11 @@ const RegisterPage = ({ onRegister }) => {
     };
     return (
         <div>
-            <h1>Hello, this is a Register Page!</h1>
+            <h1>Please, register to create a new account!</h1>
             <form className="form" onSubmit={handleSubmit} autoComplete="off">
                 <label>
                     Name
-                    <input
+          <input
                         type="name"
                         name="name"
                         value={name}
@@ -37,8 +37,8 @@ const RegisterPage = ({ onRegister }) => {
                     />
                 </label>
                 <label>
-                    E-mail
-                    <input
+                    Email
+          <input
                         type="email"
                         name="email"
                         value={email}
@@ -49,7 +49,7 @@ const RegisterPage = ({ onRegister }) => {
                 </label>
                 <label>
                     Password
-                    <input
+          <input
                         type="password"
                         name="password"
                         value={password}

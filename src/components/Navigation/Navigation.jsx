@@ -13,7 +13,7 @@ const Navigation = ({ isAuthenticated }) => {
                 activeClassName="Navlink--active"
             >
                 Home
-            </NavLink>
+      </NavLink>
             {isAuthenticated && (
                 <NavLink
                     to={routes.contacts}
@@ -28,7 +28,7 @@ const Navigation = ({ isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-    isAuthenticated: authSelectors.getIsAuthenticated(state)
+    isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
 export default connect(mapStateToProps)(Navigation);

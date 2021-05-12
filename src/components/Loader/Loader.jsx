@@ -5,7 +5,7 @@ const Loader = () => {
     return (
         <Spinner
             className={styles.spinner}
-            type="Oval"
+            type="Circle"
             color="#000"
             height={40}
             width={40}

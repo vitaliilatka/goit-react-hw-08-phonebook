@@ -8,9 +8,9 @@ const { getUserEmail } = authSelectors;
 const UserMenu = ({ email, avatar, onLogout }) => {
     return (
         <div className={styles.container}>
-            <img src={avatar} alt="avatar" width="40" className={styles.avatar} />
+            <img src={avatar} alt="avatar" width="30" />
             <span className={styles.name}>Welcome, {email}</span>
-            <button type="button" onClick={onLogout}>
+            <button className={styles.button} type="button" onClick={onLogout}>
                 Log Out
       </button>
         </div>

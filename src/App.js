@@ -1,14 +1,11 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import routes from './routes';
-
 import Container from './components/Container';
 import AppBar from './components/AppBar';
 import Loader from './components/Loader';
-
 import { authOperations } from './redux-js/auth';
 import { connect } from 'react-redux';
-
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
@@ -40,7 +37,8 @@ const App = ({ onGetCurrentUser }) => {
           <PublicRoute
             path={routes.register}
             restricted
-            component={RegisterPage} x
+            component={RegisterPage}
+            redirectTo={routes.contacts}
           />
           <PublicRoute
             path={routes.login}
@@ -53,7 +51,6 @@ const App = ({ onGetCurrentUser }) => {
             component={ContactsPage}
             redirectTo={routes.login}
           />
-
           <Redirect to={routes.home} />
         </Switch>
       </Suspense>

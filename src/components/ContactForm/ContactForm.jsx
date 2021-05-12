@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { contactsOperations } from '../../redux-js/contacts';
 import PropTypes from 'prop-types';
-import styles from './ContactForm.module.css';
 
 const initialState = {
     name: '',
@@ -26,10 +24,10 @@ const ContactForm = ({ onSubmit }) => {
     };
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
-            <h3>Name</h3>
+        <form className="form" onSubmit={handleSubmit}>
             <label>
-                <input
+                Name
+        <input
                     type="text"
                     name="name"
                     value={name}
@@ -39,11 +37,10 @@ const ContactForm = ({ onSubmit }) => {
                     placeholder="Enter your name"
                     onChange={changeInput}
                 />
-                <br />
             </label>
-            <h3>Number</h3>
             <label>
-                <input
+                Number
+        <input
                     type="tel"
                     name="number"
                     value={number}
@@ -53,11 +50,8 @@ const ContactForm = ({ onSubmit }) => {
                     placeholder="Enter your number"
                     onChange={changeInput}
                 />
-                <br />
             </label>
-            <button type="submit" className={styles.buttonForm}>
-                Add contact
-            </button>
+            <button type="submit">Add contact</button>
         </form>
     );
 };
@@ -67,7 +61,8 @@ ContactForm.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onSubmit: (name, number) => dispatch(contactsOperations.addContact(name, number)),
+    onSubmit: (name, number) =>
+        dispatch(contactsOperations.addContact(name, number)),
 });
 
 export default connect(null, mapDispatchToProps)(ContactForm);
