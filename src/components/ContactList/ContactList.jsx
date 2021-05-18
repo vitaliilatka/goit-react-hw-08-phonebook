@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import ContactListItem from '../ContactListItem';
 
@@ -25,5 +26,7 @@ ContactList.propTypes = {
     ).isRequired,
     onDeleteContact: PropTypes.func.isRequired,
 };
+
+
 
 export default ContactList;
